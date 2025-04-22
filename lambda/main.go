@@ -20,9 +20,7 @@ func HandleRequest(event MyEvent) (string, error) {
 }
 
 func main() {
-	_ = app.NewApp()
+	myApp := app.NewApp()
 
-	lambda.Start(HandleRequest)
-
-	fmt.Println("hello world")
+	lambda.Start(myApp.ApiHandler.RegisterUserHandler)
 }
